@@ -5,17 +5,21 @@ services:
     image: envoyproxy/envoy:v1.26.1
     volumes:
       - ./envoy-demo.yaml:/etc/envoy/envoy.yaml
+      - ./hellworld.pb:/etc/envoy/protos/helloworld.pb
+      - ./reservations.pb:/etc/envoy/protos/reservations.pb
       - ./sidecar/config:/etc/envoy/config/
     expose:
       - "8080"
       - "10000"
       - "9901"
+      - "8500"
     ports:
       - 10000:10000
       - 8080:8080
       - 9901:9901
+      - 8500:8500
 
   demo_greeter:
-    image: demo_greeter:latest
+    image: demo_greeter:multistage
     ports:
      - "50051:50051"

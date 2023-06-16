@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package reservations;
+
+import "google/api/annotations.proto";
+
+service ReservationService {
+    rpc CreateReservation(CreateReservationRequest) returns (Reservation) {
+        option (google.api.http) = {
+            post: "/v1/reservations"
+            body: "reservation"
+         };
+    }
+    rpc GetReservation(GetReservationRequest) returns (Reservation) {
+        option (google.api.http) = {
+            get: "/v1/reservations/{id}"
+        };
+    }
+}
+
+message Reservation {
+    string id = 1;
+    string title = 2;
+    string venue = 3;
+    string room = 4;
+    string timestamp = 5;
+    repeated Person attendees = 6;
+}
+
+message Person {
+    string ssn = 1;
+    string firstName = 2;
+    string lastName = 3;
+}
+
+message CreateReservationRequest {
+    Reservation reservation = 1;
+}
+
+message GetReservationRequest {
+    string id = 1;
+}
