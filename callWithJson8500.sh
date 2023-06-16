@@ -1,3 +1,1 @@
-curl -X POST http://localhost:8500/helloworld.Greeter \
-   -H 'Content-Type: application/json' \ 
-   -d '{"name" : "Jill"}' \
+ curl -i -X POST localhost:8500/helloworld.Greeter/SayHello -H 'Content-Type: application/grpc' -d '{"name" : "Jill"}' 

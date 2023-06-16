@@ -5,7 +5,7 @@ services:
     image: envoyproxy/envoy:v1.26.1
     volumes:
       - ./envoy-demo.yaml:/etc/envoy/envoy.yaml
-      - ./hellworld.pb:/etc/envoy/protos/helloworld.pb
+      - ./helloworld.pb:/etc/envoy/protos/helloworld.pb
       - ./reservations.pb:/etc/envoy/protos/reservations.pb
       - ./sidecar/config:/etc/envoy/config/
     expose:
@@ -20,6 +20,6 @@ services:
       - 8500:8500
 
   demo_greeter:
-    image: demo_greeter:multistage
+    image: docker-gs-ping:multistage
     ports:
      - "50051:50051"
