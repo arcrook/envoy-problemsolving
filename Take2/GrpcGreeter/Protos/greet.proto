@@ -68,3 +68,39 @@ message Employee {
 message ID {
     string id = 1;
 }
+
+service ComplexService
+{
+    rpc CalculateMap(CalculateMapRequest) returns (CalculateMapResponse) {
+        option (google.api.http) = {
+            post: "/v1/Complex/CalculateMap"
+            body: "*"            
+        };
+    }
+}
+
+message CalculateMapRequest {
+    string name = 1;
+    map<string, Subject> subjectData = 2;
+}
+
+message CalculateMapResponse {
+    string name = 1;
+    map<string, Subject> subjectData = 2;
+}
+
+message Subject {
+    string id = 1;
+    string name = 2;
+    repeated Count count = 3;
+    Single single = 4;
+}
+
+message Count {
+    int64 number =1;
+}
+
+message Single {
+    string id = 1;
+    string name = 2;
+}

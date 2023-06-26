@@ -1,0 +1,9 @@
+{
+    "name" : "Complex Model",
+    "subjectData" :  {
+        "Mickey Mouse": { "id":"1", "name": "Disney", "count": [ { "number": 1 }, { "number": 7 }, { "number": 5 }], "single" : { "id":"1a1950e9-0db9-4af8-9d50-03516bb5c782", "name": "Disney" } }, 
+        "Donald Duck": { "id":"1", "name": "Disney" , "count": [ { "number": 1 }, { "number": 7 }, { "number": 5 }], "single" : { "id":"4fdbcfd7-0a5c-4381-987d-0c6080b0f78c", "name": "Disney" } },
+        "Daffy Duck":{ "id":"1", "name": "Warner Brothers" , "count": [ { "number": 1 }, { "number": 7 }, { "number": 5 }], "single" : { "id":"b9bf248c-7c34-4d4d-a5b2-ff9ed23bd570", "name": "Warner Brothers" } },
+        "Fred Flintstone": { "id":"1", "name": "Hanna Barbera", "count": [ { "number": 1 }, { "number": 7 }, { "number": 5 }], "single" : { "id":"cf0c1a3a-f16a-4004-9b40-624c0a182a93", "name": "Hanna Barbera" } }
+    }
+}
