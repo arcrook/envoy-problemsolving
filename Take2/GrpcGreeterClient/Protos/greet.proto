@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcGreeter";
+
+import "google/api/annotations.proto";
+// https://github.com/grpc/grpc/issues/18214 you have to add the dependent files manually to the cs proj to get annotations working ok
+// also clone https://github.com/googleapis/googleapis and move the google/api folder to the root of this file
+
+package greet;
+
+// The greeting service definition.
+service Greeter {
+  // Sends a greeting
+  rpc SayHello (HelloRequest) returns (HelloReply) {
+    option (google.api.http) = {
+      get: "/say"
+    };
+  }
+  // 
+}
+
+// Creates an item in the database
+service EmployeeService {
+    rpc CreateItem (Employee) returns (ID) {
+      option (google.api.http) = {
+        get: "/v1/employee/{id}"
+      };
+    }
+    rpc ReadItem (ID) returns (Employee) {
+      option (google.api.http) = {
+        post: "/v1/reservations"
+        body: "*"
+     };
+    }
+    rpc UpdateItem (Employee) returns (ID) {
+      option (google.api.http) = {
+        put: "/v1/employee/{id}"
+        body: "*"
+     };
+    }
+    rpc DeleteItem (ID) returns (ID) {
+      option (google.api.http) = {
+        delete: "/v1/employee/{id}"
+     };
+    }
+} 
+
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings.
+message HelloReply {
+  string message = 1;
+}
+
+message Employee {
+    string name = 1;
+    string id = 2;
+    int32 category = 3;
+    repeated string tags = 4;
+    map<string, string> metadata = 5;
+
+}
+
+message ID {
+    string id = 1;
+}
